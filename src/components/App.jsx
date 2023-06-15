@@ -1,10 +1,10 @@
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-import { fetchContacts } from 'redux/operation';
+import { fetchContacts } from 'redux/contacts/operation';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { selectIsLoading, selectError } from 'redux/selectors';
+import { selectIsLoading, selectError } from 'redux/contacts/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
