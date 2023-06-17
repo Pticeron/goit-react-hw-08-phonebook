@@ -1,11 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { register, logIn, logOut, refreshUser } from './operations';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const initialState = {
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  error: null,
+  isLoading: false,
 };
 
 const pendingReducer = state => {
@@ -15,6 +19,12 @@ const pendingReducer = state => {
 const rejectedReducer = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+
+  toast.error(
+    `${action.payload}` === 'Network Error'
+      ? `${action.payload}`
+      : 'Something went wrong. Check your data and try again'
+  );
 };
 
 const authSlice = createSlice({
