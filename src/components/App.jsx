@@ -1,4 +1,4 @@
-import { useEffect, lazy } from 'react';
+import React, { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
@@ -14,11 +14,13 @@ const ContactsPage = lazy(() => import('../pages/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(refreshUser());
+    dispatch(refreshUser()); 
   }, [dispatch]);
+
+
+  const { isRefreshing } = useAuth();
 
   return isRefreshing ? (
     <b>Refreshing user...</b>

@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addContact, deleteContact, fetchContacts } from './operation';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const initialState = {
   items: [],
@@ -14,6 +17,12 @@ const pendingReduser = state => {
 const rejectedReduser = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+
+  toast.error(
+    `${action.payload}` === 'Network Error'
+      ? `${action.payload}`
+      : 'Something went wrong.Check your data and try again'
+  );
 };
 const fetchContactsFulfilledReduser = (state, action) => {
   state.isLoading = false;
