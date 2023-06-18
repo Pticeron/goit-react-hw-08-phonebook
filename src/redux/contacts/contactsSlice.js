@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { addContact, deleteContact, fetchContacts } from './operation';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { logOut } from 'redux/auth/operations'
 
 const initialState = {
   items: [],
@@ -53,7 +53,13 @@ const contactsSlice = createSlice({
       .addCase(addContact.rejected, rejectedReduser)
       .addCase(deleteContact.pending, pendingReduser)
       .addCase(deleteContact.fulfilled, deleteContactFulfilledReduser)
-      .addCase(deleteContact.rejected, rejectedReduser),
+      .addCase(deleteContact.rejected, rejectedReduser)
+
+      .addCase(logOut, state => {
+        state.items = [];
+        state.error = null;
+        state.isLoading = false;
+      }),
 });
 
 export const contactsReducer = contactsSlice.reducer;
