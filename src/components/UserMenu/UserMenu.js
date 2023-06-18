@@ -12,7 +12,7 @@ export const UserMenu = () => {
       <p className={css.username}>Welcome, {user.name}</p>
       <button type="button" onClick={() => dispatch(logOut())}>
         Logout
-        <span class="material-symbols-outlined">login</span>
+        <span>login</span>
       </button>
     </div>
   );
