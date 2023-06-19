@@ -13,14 +13,14 @@ const LoginPage = lazy(() => import('../pages/Login'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));
 
 export const App = () => {
+  const { isRefreshing } = useAuth();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(refreshUser()); 
+    dispatch(refreshUser());
   }, [dispatch]);
 
-
-  const { isRefreshing } = useAuth();
 
   return isRefreshing ? (
     <b>Refreshing user...</b>
@@ -31,7 +31,10 @@ export const App = () => {
         <Route
           path="/register"
           element={
-            <RestrictedRoute redirectTo="/contacts" component={<RegisterPage />} />
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<RegisterPage />}
+            />
           }
         />
         <Route
