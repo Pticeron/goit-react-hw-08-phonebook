@@ -1,4 +1,4 @@
-.link {
+/* .link {
   display: inline-block;
   text-decoration: none;
   padding: 12px;
@@ -8,4 +8,21 @@
 
 .link.active {
   color: #e84a5f;
+} */
+.link {
+  display: inline-block;
+  padding: 20px 5px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.activeLink {
+  composes: link;
+  color: #ffff00;
+}
+
+.link:not(:last-child) {
+  margin-right: 20px;
 }

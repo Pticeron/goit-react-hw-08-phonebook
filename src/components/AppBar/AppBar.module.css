@@ -1,8 +1,21 @@
-.header {
+/* .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
   padding: 20px 0px 20px 0px;
   border-bottom: 1px solid #2a363b;
+} */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px auto 0;
+  padding: 0 15px 3px;
+  text-align: start;
+  background-color: hsl(209, 77%, 68%);
+  border-radius: 4px;
+  box-shadow: inset rgba(0, 0, 0, 0.541) -3px -3px 8px,
+    inset rgba(255, 253, 253, 0.9) 3px 3px 8px,
+    rgba(0, 0, 0, 0.8) 3px 3px 8px -3px;
 }
